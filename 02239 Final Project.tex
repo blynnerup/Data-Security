@@ -1,9 +1,12 @@
 \documentclass[11pt]{article}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
 \begin{document}
 \title{02239 Data Security - Final Assignment}
 \author{s042457 Brian Lynnerup Pedersen}
 \date{\today}
 \maketitle
+\thispagestyle{empty}
 \pagebreak
 \tableofcontents
 \pagebreak
@@ -15,12 +18,16 @@ The subject as a whole is huge, and can in no way be fully covered by the limits
 \section{Introduction}
 For this assignment I chose to focus on topic A (Health Care).
 
-In the world today there's a move towards a much more digitalized system. Where data is accessible from everywhere in a instance, in Denmark more and more communication with all government branches has to be handled on-line. If you want to renew your passport, apply for a name change, report you bicycle stolen and much, much more is the kind of things that has to be handled on-line. Before this began, when a person went to a doctor or hospital or the like, they would have actual files in metal cabinets that would contain all your medical data, in the 80's and 90's a shift began where doctors would have your journals on a pc. Later on, the journals would be added to databases, so that a patients medical data could be read by any doctor in the country. This brave new world of digitalization presents a whole new range of options in terms of making the health care system much more efficient, but how well is the process going?
+The world today is becoming more and more digitalized. We want to be able to access data  from everywhere in a instance. In Denmark more and more communication with all government branches has to be handled on-line. If you want to renew your passport, apply for a name change, report you bicycle stolen and much, much more is the kind of dealing that has to be handled on-line. Before this began, when a person went to a doctor or hospital or the like, they would have actual files in metal cabinets that would contain all your medical data, in the 80's and 90's a shift began where doctors would have your journals on a pc. Later on, the journals would be added to databases, so that a patients medical data could be read by any doctor in the country. This brave new world of digitalization presents a whole new range of options in terms of making the health care system much more efficient, but how well is the process going?
 
-Today many people are treated in the healthcare system daily, some of these people may be people that holds important places in government or businesses. Finding out if such a person was about to die could create a devastating effect. When Steve Jobs (co founder of Apple) died there was a lot of speculations as to what would now happen with Apple, his death even made Apple stocks fall by 5\%. And a year after his death people were still speculating in the aftermath of his death\footnote{ \texttt{http://business.time.com/2012/09/25/ \\
-apple-one-year-after-steve-jobs-death-the-iphone-falters/} }. When Kate Middleton (Duchess of Cambridge) was emitted to the hospital during her pregnancy a couple of Australian DJs succeeded, by using Social Engineering\footnote{ \texttt{http://en.wikipedia.org/wiki/Social\_engineering\_(security)} }, by posing a members of the royal court to obtain information about the Duchess. The nurse that was the victim of this prank call, later committed suicide\footnote{ \texttt{http://www.huffingtonpost.com/2012/12/07/\\kate-middleton-nurse-found-dead-prank-callers\_n\_2257231.html} }. Knowing about peoples health can in certain situations be worth a lot of money, or if knowing of a persons allergies could provide a dubious person to eliminate a person if this information was obtained, and then could claim an inheritance.
+Today many people are treated in the healthcare system daily, some of these people may be people that holds important places in government or businesses. Finding out if such a person is about to die, or has fallen very ill, could create a devastating effect. When Steve Jobs (co founder of Apple) died there was a lot of speculations as to what would now happen with Apple, his death even made Apple stocks fall by 5\%. And a year after his death people were still speculating in the aftermath of his death\footnote{ \texttt{http://business.time.com/2012/09/25/ \\
+apple-one-year-after-steve-jobs-death-the-iphone-falters/} }. And the press is still talking about if Apple has any more to offer in terms of innovation.
 
- This is what I want to try and look into in this assignment. To do this, I was allowed to go to a nursing home in Denmark and talk with some of the people working there, and ask them questions regarding data security. I have also called different government offices in order to find out what the official laws and policies transcends from when a law is passed, implemented in the various municipalities in Denmark and to the person having to abide to these laws and policies. How is our data secured, and what measures are taken to prevent data falling into the wrong hands?  
+ When Kate Middleton (Duchess of Cambridge) was emitted to the hospital during her pregnancy a couple of Australian DJs succeeded, by using Social Engineering\footnote{ \texttt{http://en.wikipedia.org/wiki/Social\_engineering\_(security)} }, by posing a members of the royal court to obtain information about the Duchess. The nurse that was the victim of this prank call, later committed suicide\footnote{ \texttt{http://www.huffingtonpost.com/2012/12/07/\\kate-middleton-nurse-found-dead-prank-callers\_n\_2257231.html} }. 
+ 
+Knowing about peoples' general health, can in certain situations be worth a lot of money. In severe cases it can even be a mean to eliminating a person. 
+ 
+ This is what I want to try and look into in this assignment. To do this, I was allowed to go to a nursing home in Denmark and talk with some of the people working there, and ask them questions regarding data security. I have also called different government offices in order to find out what the official laws and policies are, and how they transcends from when a law is passed, implemented in the various municipalities in Denmark and to the person having to abide to these laws and policies. How is our data secured, and what measures are taken to prevent data falling into the wrong hands? 
 \subsection{Interviewees}
 I have interviewed the following people and legal bodies for this assignment:
 \begin{itemize}
@@ -30,7 +37,7 @@ I have interviewed the following people and legal bodies for this assignment:
 \item SOSU assistant (\textbf{S1}) - Less than one year of experience.
 \item SOSU helper (\textbf{S2}) - 30 years of experience.
 \item IT department of the municipality in question (\textbf{ITD}).
-\item "Datatilsyntes"\footnote{Government branch in charge of enforcing the laws, in relation to personal data - \texttt{http://www.datatilsynet.dk/}} (\textbf{MJ}).
+\item "Datatilsyntes"\footnote{Government branch in charge of enforcing the laws, in relation to personal data - \texttt{http://www.datatilsynet.dk/}} (\textbf{DT}).
 \end{itemize}
 
 All staff I have interviewed at the Center, has known what my purpose was at the Center and was informed that any information they passed on to me regarding questions I would ask them, would be anonymized and had no impact in terms of their job.
@@ -40,14 +47,16 @@ During my interview at the Center I found out that the structure is rather compl
 The Center is divided into four different branches that deal with various treatment areas. For each of these  branches there is appointed a leader, so in total the Center has four different top leaders, each managing their own area (\textbf{Tier 1}), each area has different groups\footnote{Group being a small collection of apartments, or homes. These have their own SOSU assistants and helpers.} with residents. In the next tier (\textbf{Tier 2}) is the people that are leaders in certain areas and nurses doing regular care taking. In the next tier (\textbf{Tier 3}) is the SOSU assistants. Below that tier (\textbf{Tier 4}) is the SOSU helpers, and in the final tier (\textbf{Tier 5}) is people employed with the maintenance, kitchen, cleaning, volunteers and relatives to the people living at the Center, in short people that should have no access to personal data (other than what relatives are entitled to know, as per consent given by the citizen, more about this later on).\\
 As some of these tiers covers different branches of the Center, I will talk about all of a tier or local of a tier. All means that everyone in that tier have access to the data, although they may not work with the resident directly. Local means that only people working with the resident in some way have access to that data.
 
-These tiers is created in order to try and give a clear image of who has access to what data.
+These tiers is created in order to try and give a clear image of who has access to what data, and is not something that is implemented within the Center.
+
+\textbf{L1} belongs to \textbf{Tier 1}, \textbf{L2 and L3} belongs to \textbf{Tier 2}, \textbf{S1} belongs to \textbf{Tier 3}, \textbf{S2} belongs to \textbf{Tier 4}.
 \section{Rules, Laws and Policies}
-Every person that is employed in the Danish social and health care is required to sign a pledge of confidentiality, that makes them promise that they won't share any sensitive data with anyone outside the health care system, which is documented in the Danish law "Forvaltningsloven" §27\footnote{ \texttt{https://www.retsinformation.dk/Forms/r0710.aspx?id=142955} }. Also in relation with "Persondataloven"\footnote{ \texttt{https://www.retsinformation.dk/Forms/r0710.aspx?id=828} }, which is the law that, in \textbf{VERY} short, deals with the handling of personal data, ensures the individual persons rights to their personal data. Both links are in Danish.\\
+Every person that is employed in the Danish social and health care is required to sign a pledge of confidentiality, that makes them promise that they won't share any sensitive data with anyone outside the health care system, which is documented in the Danish law "Forvaltningsloven" §27\footnote{ \texttt{https://www.retsinformation.dk/Forms/r0710.aspx?id=142955} }. Also in relation with "Persondataloven"\footnote{ \texttt{https://www.retsinformation.dk/Forms/r0710.aspx?id=828} }, which is the law that, in \textbf{VERY} short, deals with the handling of personal data, ensures the individual persons rights to their personal data. To that law is made an extension that more in detail describes how data and electronic devices are to be handled\footnote{ \texttt{https://www.retsinformation.dk/Forms/R0710.aspx?id=842} } Both links are in Danish. These laws are upheld by \textbf{DT}.\\
 Every person that is hired in the public sector is also required to have a clean criminal record.
 
 The municipality is the ones that makes the policies regarding IT and data. Which means that the rules regarding IT can vary from municipality to municipality. It is the responsibility of the municipality to inform their employees of where to find information about their IT policy. It is also up to the municipality to ensure that these policies are up to date and in accordance with the law.
 
-The government is the legal body, that passes the laws that deals with data security. This is done under the ministry of justice.
+The government is the legal body, that passes the laws that deals with data security. This is upheld by \textbf{DT}. They are responsible for both "Persondataloven" and "Forvaltningsloven".
 \subsection{Citizens Rights}
 As for all other parts of society, every person living at the Center has certain rights in terms as to what data they want to share and with who. The exception here being that some of the elderly people could suffer from various conditions (such as dementia) that would render them unable to take care of themselves. In these cases a legal guardian is appointed to the person. This would often be a close relative, or in special cases the health care system itself can become the legal guardian of the person (this could occur when the person have no living relatives). If a guardian is appointed, this guardian will make all decisions on that persons behalf. These points are all mentioned in Persondataloven, but some of the points I felt should be noted here.
 These include:
@@ -68,12 +77,13 @@ At the Center, data is stored both as paper data as well as electronic data. The
 \subsection{Archives}
 The center is divided into groups, in which a number of residents live. Each group has their own work station, that is situated somewhere in the Center, near the residents. Every work station consists of an archive and a computer.
 
+The archive holds documents like the agreement pact and the journal. This journal also contains data about medical treatment. Only staff on \textbf{Tier 1 and 2} and locally on \textbf{Tier 3} can alter in the medial information. It is "read only" for staff on \textbf{Tier 4}.
+
 How ever, special papers like the Treatment Will, is located at the office of the group leaders(Tier 2). It's content is known to Tiers 1, 2 and locally 3 and 4.
 
 During my interview session with some of the staff, I was told that the archives was not locked, neither was the locker containing the keys to the residents home. Although I was told that they should be locked at all times, this was never the case. Ironically the refrigerator was always locked, as some of the demented residents could forget they had been fed, and take food from the refrigerator.
-This is a case in which the issues of data security become pretty clear. The focus is not on the data as much as it is on the food, as (so far) no one has stole any data. And for logical reasons.
+This is a case in which the issues of data security become pretty clear. The focus is not on the data as much as it is on the food, as (so far) no one has stole any data. And for logical reasons, the food is often reported stolen if not locked in a the refrigerator, journals have not (yet) been stolen.
 
-Everything written in paper
 \subsection{Electronic Devises}
 The Center is using computers in their daily work. These computers are all secured with a password. Passwords are be changed every third month (the user is prompted every third month to change password). For the work stations there is one shared computer this is mainly used by \textbf{Tier 3 and 4}, though \textbf{Tier 2} can use them as well. Some of the staff in \textbf{Tier 2} have their own personal computer (this being the case for \textbf{L2 and L3}) and everyone on \textbf{Tier 1} have their own computer. All users of the computers have a specified access level. This means that the user have varying programs available to them. The Center is using two different systems for residents journals. One containing more data than the other. Both are connected to a database. All work done by the staff have to be saved on remote drives, as their C: drive is reset every night (\textbf{ITD}). To access these systems, the users have to log onto a Citrix\footnote{\texttt{http://www.citrix.com/}} secure line. The users have an USB drive, that they have to plug into the computer, that grants them an access key to their WLAN.
 
@@ -187,6 +197,16 @@ When I called them I was talking to one of leaders of their \textbf{ITD}. She to
 The \textbf{ITD} is in charge of updating the computers in the municipality, to make sure that they are up to the current standards, for instance are they currently upgrading their computers to use Windows 7 instead of Windows XP, which Microsoft stops supporting by April 2014\footnote{ \texttt{http://www.microsoft.com/en-us/windows/enterprise/endofsupport.aspx} }.
 This \textbf{ITD} was actually in charge of the data security on IT equipment in three different municipalities, and that they therefore had to operate with three different standards. In this municipality, if an employee had a smart phone, the phone would lock itself after being unused for a short period of time. In one of the other municipalities they worked for, they also had a program for sending secure text messages on their phones, this however was not required in this municipality.
 I was also told that the municipality would have a seminar every third month for new employees, and as a part of that seminar there would be a session with focus on IT security and how to make sure your electronic devices was being used in the right way. This seminar had been running for at least five years. However of the five people I interviewed, three of them had been to this seminar. None of them remembered having a special IT session, but only given a number for which to call in case "something did not work". Also staff hired more than five years ago was not given this course, and when I talked with \textbf{S2} about data security, there had never been any form of information passed on to \textbf{S2} regarding this. All \textbf{S2} knew about how to work with data was from what had been told during work.
+
+\section{Datatilsyntes - How Laws Are Enforced}
+I called up \textbf{DT} to ask them about how they make sure that the municipalities' IT policies and rules are in accordance with the law.
+
+\textbf{DT} told me that the law, "Persondataloven", is rather vague in terms of how to actually enforce data security. So there is made an amendment that specifies how the municipalities are supposed to uphold the law\footnote{https://www.retsinformation.dk/Forms/R0710.aspx?id=842}. Also § 62 of "Persondataloven" entitles \textbf{DT} to visit both institutions and municipalities to look into how the data security is working.
+
+When I talked with the staff at the Center, I found several cases where they didn't know what to do in certain situations in relation to data security - like using the Citirix secure internet connection. In the amendment to "Persondataloven", § 5 and § 6 clearly states that the authority responsible for the data security is required to 1) inform employees about the data security rules and tools that are being used, and 2) update their IT rules and policies at least once per year to make sure it is up to date. This was last updated in 2007. 
+
+I wanted to know how often they made use of § 62, how ever I was told that this was a possibility, and there was no schedule after which these visits are conducted. Of course there is a lot of municipalities and a lot of institutions, but judging from what I was told by the staff at the Center, that had worked in other municipalities, this does not appear to be an isolated case.
+
 \section{Final Thoughts}
 Is security being enforced well enough at health care centres in Denmark?
 Harder to scam companies, is people next? Social engineering..
@@ -194,6 +214,8 @@ Access control, social engineering, identity theft in relation to lost electroni
 Problems with not making sure data security is enforced.
 Problem with tier 5, could potentially know a lot they're not entitled to know..
 Different standards from municipality to municipality - makes it hard for Datatilsynet to make sure that everyone is doing enough to be uphold the law?
+
+There is clearly a lack in control from government level down to the person working with personal data - at least from the Centre's point of view. Staff are not being briefed properly, the municipality fails to update their IT rules and policies in keeping with the law. On top of this is the government branch \textbf{DT} that also fails in making sure that the rules are upheld.
 
 There is a lot of problems with the way personal data is handled. One of these problems is based in the fact that we are all human beings, and as such make mistakes.
 At the bottom line of all this we must consider another, and all together much more basic issue, when a person is deemed unable to take care of themselves and custody is appointed to another.
